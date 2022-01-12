@@ -1,23 +1,18 @@
-pip install pytube3
-from pytube3 import YouTube
+from pytube import YouTube 
 
-link = input(“Enter the link: “)
-yt = YouTube(link)
 
-#Title of video
-print(“Title: “,yt.title)
+yt = YouTube("https://www.youtube.com/watch?v=DC_grFx4AsA")
 
-#Number of views of video
-print(“Number of views: “,yt.views)
+#stream = yt.streams.get_highest_resolution().download()
 
-#Length of the video
-print(“Length of video: “,yt.length,”seconds”)
+my_stream = yt.streams
 
-#Description of video
-print("Description: ",yt.description)
+'''for each_stream in my_stream
+    print(each_stream)
+'''
 
-#Rating
-print("Ratings: ",yt.rating)
+yt.streams.get_by_itag(18).download(filename="jake.mp4")
 
-#printing all the available streams
-print(yt.streams)
+print(yt.title)
+print(yt.thumbnail_url)
+print(yt.author)
